@@ -3,6 +3,23 @@ import MyCalendar from './MyCalendar';
 import DateConverter from './DateConverter'
 
 function App() {
+	const MyMonth = Object.freeze({
+		NULLUS: 'Nullus',
+		PRIMUS: 'Primus',
+		SECONDUS: 'Secondus',
+		TERTIUS: 'Tertius',
+		QUARTUS: 'Quartus',
+		QUINTUS: 'Quintus',
+		SEXTEMBER: 'Sextember',
+		SEPTEMBER: 'September',
+		OCTOBER: 'October',
+		NOVEMBER: 'November',
+		DECEMBER: 'December',
+		UNDECEMBER: 'Undecember',
+		DUODECEMBER: 'Deuodecember',
+		TREDECEMBER: 'Tredecember'
+	});
+	
 	var now = new Date()
 	var start = new Date(now.getFullYear(), 0, 0)
 	var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)
