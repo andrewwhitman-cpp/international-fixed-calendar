@@ -1,48 +1,20 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Typography } from "@mui/material"
 import BasicDateField from "./BasicDateField"
+import { MyDate } from "./MyDate"
+
+const date_placeholder = new MyDate(2000, 1, 1)
 
 function DateConverter() {
-    const [userDay, setUserDay] = useState('')
-    const [userMonth, setUserMonth] = useState('')
-    const [userYear, setUserYear] = useState('')
-    const [newDay, setNewDay] = useState('')
-    const [newMonth, setNewMonth] = useState('')
+    const [newDate, setNewDate] = useState(date_placeholder)
 
     function handleUpdateUserDate(d) {
         const date_string = new String(d)
         const date = new Date(date_string)
-        setUserDay(date.getDate().toString())
-        setUserMonth((date.getMonth() + 1).toString())
-        setUserYear(date.getFullYear().toString())
+        const new_date = new MyDate(date.getFullYear(), date.getMonth(), date.getDate())
+        setNewDate(new_date)
     }
     
-	var my_month_names = {0: 'Nullus',
-                        1: 'Primus',
-                        2: 'Secondus',
-                        3: 'Tertius',
-                        4: 'Quartus',
-                        5: 'Quintus',
-                        6: 'Sextember',
-                        7: 'September',
-                        8: 'October',
-                        9: 'November',
-                        10: 'December',
-                        11: 'Undecember',
-                        12: 'Duodecember',
-                        13: 'Tredecember'}
-    
-    useEffect(() => {
-        var userDate = new Date(userMonth + "-" + userDay + "-" + userYear)
-        var userDateYear = new Date(userDate.getFullYear(), 0, 0)
-        var diff = (userDate - userDateYear) + ((userDateYear.getTimezoneOffset() - userDate.getTimezoneOffset()) * 60 * 1000)
-        var one_day = 1000 * 60 * 60 * 24
-        var day = Math.floor(diff / one_day)
-        setNewDay((day % 28).toString())
-        setNewMonth(Math.ceil(day / 28).toString())
-        console.log(newDay, newMonth, userYear)
-    }, [userDay, userMonth, userYear])
-
 	return (
 	<>
     <Typography>
@@ -51,8 +23,8 @@ function DateConverter() {
     <BasicDateField f={(d) => handleUpdateUserDate(d)} />
     <Typography>
         Your new birthday:<br />
-        {newMonth}/{newDay}/{userYear}<br />
-        The {newDay}th of {my_month_names[newMonth]}
+        {newDate.getMonth()}/{newDate.getDay()}/{newDate.getYear()}<br />
+        The {newDate.getDay()}th of {newDate.getMonthName()}
     </Typography>
 	</>
 	)
