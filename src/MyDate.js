@@ -73,10 +73,16 @@ export class MyDate {
         } else if (format == 'long') {
             return this.day + 'th of ' + Object.values(MyMonth)[this.month] + ' ' + this.year
         } else if (format == 'full') {
-            return Object.values(MyWeekday)[(this.day - 1) % 7] + ' ' + 
-                    Object.values(MyMonth)[this.month] + ' ' + 
-                    this.day + ' ' + 
-                    this.year
+            if (this.month == 0) {
+                return Object.values(MyMonth)[this.month] + ' ' + 
+                        this.day + ' ' + 
+                        this.year
+            } else {
+                return Object.values(MyWeekday)[(this.day - 1) % 7] + ' ' + 
+                        Object.values(MyMonth)[this.month] + ' ' + 
+                        this.day + ' ' + 
+                        this.year
+            }
         } else {
             return ''
         }
