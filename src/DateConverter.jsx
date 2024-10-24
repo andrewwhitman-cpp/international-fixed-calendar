@@ -18,10 +18,11 @@ function DateConverter() {
 	return (
 	<>
     <Typography>
-        Enter your standard birthday to find your new birthday:
+        Enter your birthday:
     </Typography>
     <BasicDateField f={(d) => handleUpdateUserDate(d)} />
     <Typography>
+        <br />
         Your new birthday:<br />
         {newDate.getMonth()}/{newDate.getDay()}/{newDate.getYear()}<br />
         The {newDate.getDay()}th of {newDate.getMonthName()}
