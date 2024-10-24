@@ -25,7 +25,7 @@ function DateConverter() {
         <br />
         Your new birthday:<br />
         {newDate.getMonth()}/{newDate.getDay()}/{newDate.getYear()}<br />
-        The {newDate.getDay()}th of {newDate.getMonthName()}
+        {newDate.getDate('full')}
     </Typography>
 	</>
 	)
