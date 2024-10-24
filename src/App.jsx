@@ -1,5 +1,6 @@
 import { Container, Typography } from '@mui/material';
 import MyCalendar from './MyCalendar';
+import DateConverter from './DateConverter'
 
 function App() {
 	var now = new Date()
@@ -59,6 +60,7 @@ function App() {
 		<hr />
 
 		<MyCalendar month={my_month_names[my_month]} day={my_day} />
+		<DateConverter />
 
 		<br />
 
