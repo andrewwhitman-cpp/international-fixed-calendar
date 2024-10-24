@@ -6,7 +6,13 @@ import Grid from '@mui/material/Grid2';
 import { Typography } from '@mui/material';
 
 function MyCalendar(props) {
-    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    const days = ['Monday', 
+                  'Tuesday', 
+                  'Wednesday', 
+                  'Thursday', 
+                  'Friday', 
+                  'Saturday', 
+                  'Sunday']
 
     function color(i, j) {
         return i == j ? 'green' : 'black'
