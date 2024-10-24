@@ -46,15 +46,17 @@ function App() {
 
 		<Typography>
 			My calendar date<br />
-			295 / 28 = {295/28}<br />
+			{/* {day} / 28 = {day/28}<br /> */}
 			11 months and 15 days
 			<Typography sx={{ fontWeight: 'bold' }}>
-				{my_day}/{my_month}/{my_year}<br />
+				{my_month}/{my_day}/{my_year}<br />
 				{my_day}th of {my_month_names[my_month]} {my_year}
 			</Typography>
 		</Typography>
 
 		<br />
+
+		<hr />
 
 		<MyCalendar month={my_month_names[my_month]} day={my_day} />
 
