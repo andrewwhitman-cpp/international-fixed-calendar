@@ -39,7 +39,7 @@ function App() {
 			11 months and 15 days
 			<Typography sx={{ fontWeight: 'bold' }}>
 				{my_date.getDate('standard')}<br />
-				{my_date.getDate('long')}<br />
+				{my_date.getDate('full')}<br />
 			</Typography>
 		</Typography>
 
@@ -47,7 +47,7 @@ function App() {
 
 		<hr />
 
-		<MyCalendar month={my_date.getMonth()} day={my_date.getDay()} />
+		<MyCalendar month={my_date.getMonthName()} day={my_date.getDay()} weekday={my_date.getWeekday()} />
 		<DateConverter />
 
 		<br />
