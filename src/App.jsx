@@ -40,7 +40,6 @@ function App() {
 			<Typography sx={{ fontWeight: 'bold' }}>
 				{my_date.getDate('standard')}<br />
 				{my_date.getDate('long')}<br />
-				{/* {my_day}th of {my_month_names[my_month]} {my_year} */}
 			</Typography>
 		</Typography>
 
@@ -48,8 +47,8 @@ function App() {
 
 		<hr />
 
-		{/* <MyCalendar month={my_month_names[my_month]} day={my_day} /> */}
-		{/* <DateConverter /> */}
+		<MyCalendar month={my_date.getMonth()} day={my_date.getDay()} />
+		<DateConverter />
 
 		<br />
 
