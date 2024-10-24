@@ -9,13 +9,10 @@ function App() {
 	var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)
 	var one_day = 1000 * 60 * 60 * 24
 	var day = Math.floor(diff / one_day)
-	
-	var date = Date()
-	
-	const my_day = (day - 1) % 28
-	const my_month = Math.ceil(day / 28)
-	const my_year = 2024
-	const my_date = new MyDate(my_day, my_month, my_year)
+
+	const date = Date()
+
+	const my_date = new MyDate(now.getFullYear(), now.getMonth(), now.getDate())
 
 	return (
 	<Container>
@@ -47,7 +44,7 @@ function App() {
 
 		<hr />
 
-		<MyCalendar month={my_date.getMonthName()} day={my_date.getDay()} weekday={my_date.getWeekday()} />
+		{/* <MyCalendar month={my_date.getMonthName()} day={my_date.getDay()} weekday={my_date.getWeekday()} /> */}
 		<DateConverter />
 
 		<br />
