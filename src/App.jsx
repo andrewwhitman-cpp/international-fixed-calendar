@@ -1,57 +1,28 @@
 import { Container, Typography } from '@mui/material';
 import MyCalendar from './MyCalendar';
 import DateConverter from './DateConverter'
+import { MyDate } from './MyDate.js'
 
 function App() {
-	const MyMonth = Object.freeze({
-		NULLUS: 'Nullus',
-		PRIMUS: 'Primus',
-		SECONDUS: 'Secondus',
-		TERTIUS: 'Tertius',
-		QUARTUS: 'Quartus',
-		QUINTUS: 'Quintus',
-		SEXTEMBER: 'Sextember',
-		SEPTEMBER: 'September',
-		OCTOBER: 'October',
-		NOVEMBER: 'November',
-		DECEMBER: 'December',
-		UNDECEMBER: 'Undecember',
-		DUODECEMBER: 'Deuodecember',
-		TREDECEMBER: 'Tredecember'
-	});
-	
 	var now = new Date()
 	var start = new Date(now.getFullYear(), 0, 0)
 	var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)
 	var one_day = 1000 * 60 * 60 * 24
 	var day = Math.floor(diff / one_day)
-
+	
 	var date = Date()
-
-	var my_month = Math.ceil(day / 28)
-	var my_day = (day - 1) % 28
-	var my_year = "2024"
-	var my_month_names = {0: 'Nullus',
-						1: 'Primus',
-						2: 'Secondus',
-						3: 'Tertius',
-						4: 'Quartus',
-						5: 'Quintus',
-						6: 'Sextember',
-						7: 'September',
-						8: 'October',
-						9: 'November',
-						10: 'December',
-						11: 'Undecember',
-						12: 'Duodecember',
-						13: 'Tredecember'}
+	
+	const my_day = (day - 1) % 28
+	const my_month = Math.ceil(day / 28)
+	const my_year = 2024
+	const my_date = new MyDate(my_day, my_month, my_year)
 
 	return (
 	<Container>
 		<Typography>
 			Today is the 
 			<Typography sx={{ fontWeight: 'bold' }}>{day}th</Typography> 
-			day of the year.
+			day of the year.<br />
 		</Typography>
 
 		<br />
@@ -64,11 +35,12 @@ function App() {
 
 		<Typography>
 			My calendar date<br />
-			{/* {day} / 28 = {day/28}<br /> */}
+			{day} / 28 = {day/28}<br />
 			11 months and 15 days
 			<Typography sx={{ fontWeight: 'bold' }}>
-				{my_month}/{my_day}/{my_year}<br />
-				{my_day}th of {my_month_names[my_month]} {my_year}
+				{my_date.getDate('standard')}<br />
+				{my_date.getDate('long')}<br />
+				{/* {my_day}th of {my_month_names[my_month]} {my_year} */}
 			</Typography>
 		</Typography>
 
@@ -76,8 +48,8 @@ function App() {
 
 		<hr />
 
-		<MyCalendar month={my_month_names[my_month]} day={my_day} />
-		<DateConverter />
+		{/* <MyCalendar month={my_month_names[my_month]} day={my_day} /> */}
+		{/* <DateConverter /> */}
 
 		<br />
 
