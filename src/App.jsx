@@ -11,7 +11,7 @@ function App() {
 	var date = Date()
 
 	var my_month = Math.ceil(day / 28)
-	var my_day = day % 28
+	var my_day = (day - 1) % 28
 	var my_year = "2024"
 	var my_month_names = {0: 'Nullus',
 						1: 'Primus',
