@@ -34,8 +34,17 @@ export class MyDate {
         var one_day = 1000 * 60 * 60 * 24
         var day = Math.floor(diff / one_day)
 
-        const my_day = day % 28
-        const my_month = Math.ceil(day / 28)
+        var my_day = 0
+        var my_month = 0;
+        if (day <= 28 * 13) {
+            // regular 1-28 date
+            my_month = Math.ceil(day / 28)
+            my_day = day % 28 == 0 ? 28 : day % 28
+        } else {
+            my_month = 0
+            my_day = day % (28 * 13)
+        }
+
 
         this.day = my_day;
         this.month = my_month;
