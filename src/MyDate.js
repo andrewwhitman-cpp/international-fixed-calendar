@@ -1,0 +1,45 @@
+const MyMonth = Object.freeze({
+    0: 'Nullus',
+    1: 'Primus',
+    2: 'Secondus',
+    3: 'Tertius',
+    4: 'Quartus',
+    5: 'Quintus',
+    6: 'Sextember',
+    7: 'September',
+    8: 'October',
+    9: 'November',
+    10: 'December',
+    11: 'Undecember',
+    12: 'Deuodecember',
+    13: 'Tredecember'
+});
+
+export class MyDate {
+    // Constructor
+    constructor(day, month, year) {
+        this.day = day;
+        this.month = month;
+        this.year = year;
+    }
+  
+    // Method to get date
+    getDate(format) {
+        if (format == 'standard') {
+            return this.month + '/' + this.day + '/' + this.year
+        } else if (format == 'long') {
+            return this.day + 'th of ' + Object.values(MyMonth)[this.month] + ' ' + this.year
+        } else {
+            return ''
+        }
+    }
+
+    // Method to get day
+    getDay() { return this.day }
+
+    // Method to get month
+    getMonth() { return this.month }
+
+    // Method to get year
+    getYear() { return this.year }
+}
