@@ -27,9 +27,18 @@ const MyWeekday = Object.freeze({
 
 export class MyDate {
     // Constructor
-    constructor(day, month, year) {
-        this.day = day;
-        this.month = month;
+    constructor(year, month, day) {
+        var now = new Date(year, month, day, 0, 0, 0, 0)
+        var start = new Date(now.getFullYear(), 0, 0)
+        var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)
+        var one_day = 1000 * 60 * 60 * 24
+        var day = Math.floor(diff / one_day)
+
+        const my_day = day % 28
+        const my_month = Math.ceil(day / 28)
+
+        this.day = my_day;
+        this.month = my_month;
         this.year = year;
     }
     
