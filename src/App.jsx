@@ -64,14 +64,14 @@ function App() {
 
 		<hr />
 
-		<Typography>
+		{/* <Typography>
 			My calendar is based on every month having 28 days. 
 			This allows each month to have a perfect 4 weeks, starting on Monday and ending on Sunday.
 			With this structure, the year will have 13 months. 
 			If we do the math...13 x 28 = {13 * 28} days...that leaves us with one extra day in most years.
 			This will be New Year's Day at the beginning of the calendar. 
 			On a leap year, we'll add another day at the end of the calendar called "leap day".
-		</Typography>
+		</Typography> */}
 	</Container>
 	)
 }
