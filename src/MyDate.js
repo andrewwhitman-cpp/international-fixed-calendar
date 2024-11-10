@@ -1,21 +1,29 @@
 const MyMonth = Object.freeze({
-    0: 'Nullus',
+    0: 'Addus',
     1: 'Primus',
     2: 'Secondus',
     3: 'Tertius',
     4: 'Quartus',
     5: 'Quintus',
-    6: 'Sextember',
-    7: 'September',
-    8: 'October',
-    9: 'November',
-    10: 'December',
-    11: 'Undecember',
-    12: 'Deuodecember',
-    13: 'Tredecember'
+    6: 'Sectimus',
+    7: 'Septimus',
+    8: 'Octavus',
+    9: 'Nonus',
+    10: 'Decimus',
+    11: 'Unimus',
+    12: 'Duodius',
+    13: 'Tredius'
 })
 
 const MyWeekday = Object.freeze({
+    // 0: 'Indem',
+    // 1: 'Dodem',
+    // 2: 'Tredem',
+    // 3: 'Medem',
+    // 4: 'Quindem',
+    // 5: 'Sectem',
+    // 6: 'Findem'
+
     0: 'Monday',
     1: 'Tuesday',
     2: 'Wednesday',
