@@ -3,7 +3,7 @@ import { Typography } from "@mui/material"
 import BasicDateField from "./BasicDateField"
 import { MyDate } from "./MyDate"
 
-const date_placeholder = new MyDate(2000, 1, 1)
+const date_placeholder = new MyDate(2001, 1, 1)
 
 function DateConverter() {
     const [newDate, setNewDate] = useState(date_placeholder)
