@@ -1,4 +1,4 @@
-const MyMonth = Object.freeze({
+export const MyMonth = Object.freeze({
     0: 'Addus',
     1: 'Primus',
     2: 'Secondus',
