@@ -1,5 +1,6 @@
 import { Typography, List, ListItem, ListItemText } from "@mui/material"
 import { MyMonth } from './MyDate.js'
+import { AboutText } from "./AboutText.jsx";
 
 function About() {
     const monthNames = []
@@ -20,6 +21,12 @@ function About() {
 
     return (
         <>
+            <Typography align="center" sx={{ m: 2, wordWrap: "break-word" }} >
+                {AboutText}
+            </Typography>
+
+            <br /> <br />
+
             <Typography>
                 My Calendar Months:
             </Typography>
