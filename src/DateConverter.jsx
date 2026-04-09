@@ -87,9 +87,11 @@ function DateConverter() {
   return (
     <section className="planner-card planner-card-hover p-5 sm:p-6" aria-labelledby="converter-heading">
       <h2 id="converter-heading" className="font-serif text-lg font-semibold text-ink sm:text-xl">
-        Gregorian → modern calendar
+        Gregorian → International Fixed Calendar
       </h2>
-      <p className="mt-1 text-sm text-muted">Pick a standard date to see its modern equivalent.</p>
+      <p className="mt-1 text-sm text-muted">
+        Pick a standard date to see its equivalent in the International Fixed Calendar.
+      </p>
 
       <fieldset className="mt-5">
         <legend className="mb-2.5 block w-full text-xs font-semibold uppercase tracking-widest text-muted">
@@ -160,7 +162,9 @@ function DateConverter() {
       </fieldset>
 
       <div className="mt-6 rounded-lg border border-dashed border-hairline bg-bg/60 p-4">
-        <p className="text-xs font-semibold uppercase tracking-widest text-muted">Modern date</p>
+        <p className="text-xs font-semibold uppercase tracking-widest text-muted">
+          International Fixed Calendar date
+        </p>
         <p className="mt-2 font-mono text-sm text-ink sm:text-base">
           {newDate.getMonth()}/{newDate.getDay()}/{newDate.getYear()}
         </p>

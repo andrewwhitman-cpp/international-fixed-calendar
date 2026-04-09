@@ -45,7 +45,7 @@ function App() {
               </p>
               <div className="mt-6 border-t border-hairline pt-6">
                 <p className="text-xs font-semibold uppercase tracking-widest text-muted">
-                  Modern calendar
+                  International Fixed Calendar
                 </p>
                 <p className="mt-2 font-serif text-2xl text-accent sm:text-3xl">{my_date.getDate('full')}</p>
                 <p className="mt-2 text-muted">
