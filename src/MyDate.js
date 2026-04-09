@@ -40,17 +40,17 @@ export class MyDate {
         var start = new Date(now.getFullYear(), 0, 0)
         var diff = (now - start) + ((start.getTimezoneOffset() - now.getTimezoneOffset()) * 60 * 1000)
         var one_day = 1000 * 60 * 60 * 24
-        var day = Math.floor(diff / one_day)
+        var dayOfYear = Math.floor(diff / one_day)
 
         var my_day = 0
         var my_month = 0;
-        if (day <= 28 * 13) {
+        if (dayOfYear <= 28 * 13) {
             // regular 1-28 date
-            my_month = Math.ceil(day / 28)
-            my_day = day % 28 == 0 ? 28 : day % 28
+            my_month = Math.ceil(dayOfYear / 28)
+            my_day = dayOfYear % 28 == 0 ? 28 : dayOfYear % 28
         } else {
             my_month = 0
-            my_day = day % (28 * 13)
+            my_day = dayOfYear % (28 * 13)
         }
 
 
