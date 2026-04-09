@@ -53,6 +53,26 @@ function ChevronRightIcon(props) {
   )
 }
 
+function ChevronDownIcon(props) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      {...props}
+    >
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  )
+}
+
 function MyCalendar(props) {
   const reduceMotion = useReducedMotion()
   const [view, setView] = useState(() => ({
@@ -131,18 +151,26 @@ function MyCalendar(props) {
           <label htmlFor="calendar-year-select" className="sr-only">
             Year
           </label>
-          <select
-            id="calendar-year-select"
-            value={view.year}
-            onChange={handleYearChange}
-            className="mt-1 w-[min(100%,7.5rem)] cursor-pointer rounded-pill border border-hairline bg-paper py-1.5 pl-3 pr-8 text-center text-sm font-medium text-ink transition hover:border-accent/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:mt-1.5"
-          >
-            {yearSelectOptions.map((y) => (
-              <option key={y} value={y}>
-                {y}
-              </option>
-            ))}
-          </select>
+          <div className="relative mt-1.5 w-full max-w-[8.75rem] sm:mt-2">
+            <select
+              id="calendar-year-select"
+              value={view.year}
+              onChange={handleYearChange}
+              className="w-full cursor-pointer appearance-none rounded-pill border border-hairline bg-paper py-2 pl-4 pr-10 text-center text-sm font-semibold tabular-nums tracking-tight text-ink shadow-sm ring-1 ring-black/[0.04] transition-[box-shadow,border-color] duration-200 [color-scheme:light] hover:border-accent/45 hover:shadow-md hover:ring-accent/15 focus-visible:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/35 dark:ring-white/[0.06] dark:[color-scheme:dark]"
+            >
+              {yearSelectOptions.map((y) => (
+                <option key={y} value={y}>
+                  {y}
+                </option>
+              ))}
+            </select>
+            <span
+              className="pointer-events-none absolute right-3 top-1/2 flex h-5 w-5 -translate-y-1/2 items-center justify-center rounded-full bg-accent/8 text-muted"
+              aria-hidden
+            >
+              <ChevronDownIcon className="h-3.5 w-3.5 opacity-90" />
+            </span>
+          </div>
           <button
             type="button"
             onClick={handleToday}
