@@ -6,5 +6,5 @@ or an additional two (Leap Day) to total 365 or 366 respectively. \
 In order to preserve the nature of the months beginning on Sunday and ending on Saturday, \
 these extra days will not be labeled as one of the seven weekdays. \
 This means that the end of the year will go as follows: \
-Tredius 28 => (Leap Day) => New Year's Day => Primus 1 \
+Tredius 28 => New Year's Day => (Leap Day every 4th year) => Primus 1 \
 "
