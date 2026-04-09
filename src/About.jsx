@@ -1,4 +1,5 @@
 import { MyMonth } from './MyDate.js'
+import { AboutAdoptionText } from './AboutAdoptionText.jsx'
 import { AboutText } from './AboutText.jsx'
 
 const MONTH_KEYS = Object.keys(MyMonth)
@@ -12,6 +13,11 @@ function About() {
         About this calendar
       </h1>
       <p className="mt-6 whitespace-pre-line text-base leading-relaxed text-muted">{AboutText.trim()}</p>
+
+      <h2 className="mt-10 font-serif text-xl font-semibold text-ink sm:text-2xl">
+        Why adopt the IFC more widely?
+      </h2>
+      <p className="mt-4 whitespace-pre-line text-base leading-relaxed text-muted">{AboutAdoptionText.trim()}</p>
 
       <h2 className="mt-10 font-serif text-xl font-semibold text-ink sm:text-2xl">Months</h2>
       <ul className="mt-4 space-y-3 border-t border-hairline pt-2">
