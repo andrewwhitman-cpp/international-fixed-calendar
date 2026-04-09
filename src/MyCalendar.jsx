@@ -192,53 +192,59 @@ function MyCalendar(props) {
       </div>
 
       <div className="p-4 sm:p-5">
-        <div
-          className="mb-3 grid grid-cols-7 gap-1.5 sm:gap-2"
-          role="rowgroup"
-          aria-label="Weekday headers"
-        >
-          {WEEKDAYS.map((d) => (
-            <div
-              key={d}
-              className="text-center text-[0.65rem] font-semibold uppercase tracking-widest text-muted sm:text-xs"
-              role="columnheader"
-            >
-              {d}
-            </div>
-          ))}
-        </div>
+        {view.monthKey !== ADDUS_MONTH_KEY && (
+          <div
+            className="mb-3 grid grid-cols-7 gap-1.5 sm:gap-2"
+            role="rowgroup"
+            aria-label="Weekday headers"
+          >
+            {WEEKDAYS.map((d) => (
+              <div
+                key={d}
+                className="text-center text-[0.65rem] font-semibold uppercase tracking-widest text-muted sm:text-xs"
+                role="columnheader"
+              >
+                {d}
+              </div>
+            ))}
+          </div>
+        )}
 
-        <div className="grid grid-cols-7 gap-1.5 sm:gap-2" role="grid" aria-label={`Days in ${monthLabel}`}>
-          {addusDayCount != null
-            ? Array.from({ length: addusDayCount }, (_, index) => {
-                const dayNum = index + 1
-                const today = isTodayCell(dayNum)
-                const label = ADDUS_DAY_LABELS[index]
-                return (
+        {addusDayCount != null ? (
+          <ul
+            className="m-0 flex list-none flex-col items-center gap-1.5 p-0 sm:gap-2"
+            aria-label={`Days in ${monthLabel}`}
+          >
+            {Array.from({ length: addusDayCount }, (_, index) => {
+              const dayNum = index + 1
+              const today = isTodayCell(dayNum)
+              const label = ADDUS_DAY_LABELS[index]
+              return (
+                <li key={`${view.year}-${view.monthKey}-${dayNum}`} className="list-none" aria-current={today ? 'date' : undefined}>
                   <motion.div
-                    key={`${view.year}-${view.monthKey}-${dayNum}`}
                     initial={reduceMotion ? false : { opacity: 0, y: 6 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{
                       duration: reduceMotion ? 0 : 0.1,
                       delay: reduceMotion ? 0 : index * 0.003,
                     }}
-                    className={`flex min-h-[3.25rem] items-center justify-center rounded-lg border px-1 py-2 text-center transition sm:min-h-[3.5rem] ${
+                    className={`mx-auto flex min-h-[2.75rem] w-fit max-w-full items-center justify-center rounded-lg border px-3 py-2 text-center transition sm:min-h-[3rem] sm:px-4 ${
                       today
                         ? 'border-accent bg-accent text-accent-contrast shadow-ring'
                         : 'border-hairline bg-paper/80 text-ink hover:border-accent/35 hover:bg-accent-soft/50'
                     }`}
-                    role="gridcell"
-                    aria-selected={today}
-                    aria-label={label}
                   >
-                    <span className="text-balance text-[0.65rem] font-medium leading-tight sm:text-xs">
+                    <span className="whitespace-nowrap text-sm font-medium sm:text-base">
                       {label}
                     </span>
                   </motion.div>
-                )
-              })
-            : Array.from({ length: 28 }, (_, index) => {
+                </li>
+              )
+            })}
+          </ul>
+        ) : (
+          <div className="grid grid-cols-7 gap-1.5 sm:gap-2" role="grid" aria-label={`Days in ${monthLabel}`}>
+            {Array.from({ length: 28 }, (_, index) => {
                 const dayNum = index + 1
                 const today = isTodayCell(dayNum)
                 return (
@@ -262,7 +268,8 @@ function MyCalendar(props) {
                   </motion.div>
                 )
               })}
-        </div>
+          </div>
+        )}
       </div>
     </section>
   )
