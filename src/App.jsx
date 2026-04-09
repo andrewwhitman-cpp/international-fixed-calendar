@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { Container, Typography } from '@mui/material';
+import { Container, Typography, Paper, Box } from '@mui/material';
 import BasicMenu from './BasicMenu'
 import About from './About'
 import DateConverter from './DateConverter'
-// import MyCalendar from './MyCalendar';
+import MyCalendar from './MyCalendar';
 import { MyDate } from './MyDate.js'
 
 function App() {
@@ -16,55 +16,49 @@ function App() {
 	var day = Math.floor(diff / one_day)
 
 	const date = Date()
-
 	const my_date = new MyDate(now.getFullYear(), now.getMonth(), now.getDate())
 
 	return (
-		<Container >
-
+		<Container maxWidth="lg">
 			<BasicMenu f={(t) => setPage(t)} />
 
-			{page == 'About' && <About />}
+			{page === 'About' && <About />}
 
-			{page == 'Home' && <>
+			{page === 'Home' && (
+				<Box sx={{ mt: 4 }}>
+					<Paper elevation={3} sx={{ p: 3, mb: 4, borderRadius: 2 }}>
+						<Typography variant="h6" gutterBottom>
+							Today is the <Box component="span" sx={{ fontWeight: 'bold', color: 'primary.main' }}>{day}th</Box> day of the year
+						</Typography>
 
-				<Typography>
-					Today is the
-					<Typography sx={{ fontWeight: 'bold' }}>{day}th</Typography>
-					day of the year.<br />
-				</Typography>
+						<Typography variant="body1" gutterBottom>
+							Conventional calendar: <Box component="span" sx={{ fontWeight: 'bold' }}>{date}</Box>
+						</Typography>
 
-				<br />
+						<Typography variant="body1">
+							Modern calendar:
+							<Box sx={{ mt: 1 }}>
+								<Typography variant="h6" color="primary.main">
+									{my_date.getDate('full')}
+								</Typography>
+								<Typography variant="subtitle1">
+									{my_date.getMonth()} months and {my_date.getDay()} days
+								</Typography>
+							</Box>
+						</Typography>
+					</Paper>
 
-				<Typography>
-					Standard calendar date = <Typography sx={{ fontWeight: 'bold' }}>{date}</Typography>
-				</Typography>
+					<MyCalendar 
+						month={my_date.getMonthName()} 
+						day={my_date.getDay()} 
+						weekday={my_date.getWeekday()} 
+					/>
 
-				<br />
-
-				<Typography>
-					My calendar date<br />
-					{/* {day} / 28 = {day/28}<br /> */}
-					{my_date.getMonth()} months and {my_date.getDay()} days
-					<Typography sx={{ fontWeight: 'bold' }}>
-						{my_date.getDate('standard')}<br />
-						{my_date.getDate('full')}<br />
-					</Typography>
-				</Typography>
-
-				<br />
-
-				<hr />
-
-				{/* <MyCalendar month={my_date.getMonthName()} day={my_date.getDay()} weekday={my_date.getWeekday()} /> */}
-
-				<DateConverter />
-
-				<br />
-
-				<hr />
-			</>}
-
+					<Paper elevation={3} sx={{ p: 3, mt: 4, borderRadius: 2 }}>
+						<DateConverter />
+					</Paper>
+				</Box>
+			)}
 		</Container>
 	)
 }

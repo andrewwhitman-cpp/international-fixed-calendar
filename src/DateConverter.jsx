@@ -18,12 +18,12 @@ function DateConverter() {
 	return (
 	<>
     <Typography>
-        Enter your birthday:
+        Enter standard date:
     </Typography>
     <BasicDateField f={(d) => handleUpdateUserDate(d)} />
     <Typography>
         <br />
-        Your new birthday:<br />
+        New Date:<br />
         {newDate.getMonth()}/{newDate.getDay()}/{newDate.getYear()}<br />
         {newDate.getDate('full')}
     </Typography>
