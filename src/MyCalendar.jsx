@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { motion, useReducedMotion } from 'framer-motion'
 import { MyMonth } from './MyDate.js'
-import { MONTH_KEYS, monthKeyFromName } from './lib/myMonth.js'
+import { MONTH_NAV_ORDER, monthKeyFromName } from './lib/myMonth.js'
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
@@ -85,21 +85,21 @@ function MyCalendar(props) {
 
   const handlePrev = () => {
     setView((v) => {
-      const idx = MONTH_KEYS.indexOf(v.monthKey)
+      const idx = MONTH_NAV_ORDER.indexOf(v.monthKey)
       if (idx <= 0) {
-        return { year: v.year - 1, monthKey: MONTH_KEYS[MONTH_KEYS.length - 1] }
+        return { year: v.year - 1, monthKey: MONTH_NAV_ORDER[MONTH_NAV_ORDER.length - 1] }
       }
-      return { year: v.year, monthKey: MONTH_KEYS[idx - 1] }
+      return { year: v.year, monthKey: MONTH_NAV_ORDER[idx - 1] }
     })
   }
 
   const handleNext = () => {
     setView((v) => {
-      const idx = MONTH_KEYS.indexOf(v.monthKey)
-      if (idx < 0 || idx >= MONTH_KEYS.length - 1) {
-        return { year: v.year + 1, monthKey: MONTH_KEYS[0] }
+      const idx = MONTH_NAV_ORDER.indexOf(v.monthKey)
+      if (idx < 0 || idx >= MONTH_NAV_ORDER.length - 1) {
+        return { year: v.year + 1, monthKey: MONTH_NAV_ORDER[0] }
       }
-      return { year: v.year, monthKey: MONTH_KEYS[idx + 1] }
+      return { year: v.year, monthKey: MONTH_NAV_ORDER[idx + 1] }
     })
   }
 
