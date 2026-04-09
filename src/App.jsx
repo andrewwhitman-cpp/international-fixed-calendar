@@ -7,6 +7,29 @@ import MyCalendar from './MyCalendar.jsx'
 import { MyDate } from './MyDate.js'
 import { monthKeyFromName } from './lib/myMonth.js'
 
+function isGregorianLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0
+}
+
+/** Progress copy under the IFC headline: Primus = days only; month 2+ = completed months + days in current month; year-end line without naming Addus. */
+function ifcProgressLine(myDate) {
+  const m = myDate.getMonth()
+  const d = myDate.getDay()
+  const y = myDate.getYear()
+  if (m === 0) {
+    const yearEndDays = isGregorianLeapYear(y) ? 2 : 1
+    return `Year-end: day ${d} of ${yearEndDays}`
+  }
+  if (m === 1) {
+    const dayNoun = d === 1 ? 'day' : 'days'
+    return `${d} ${dayNoun} into the year`
+  }
+  const completedMonths = m - 1
+  const monthNoun = completedMonths === 1 ? 'month' : 'months'
+  const dayNoun = d === 1 ? 'day' : 'days'
+  return `${completedMonths} ${monthNoun} and ${d} ${dayNoun} into the year`
+}
+
 function App() {
   const [page, setPage] = useState('Home')
 
@@ -51,9 +74,7 @@ function App() {
                   International Fixed Calendar
                 </p>
                 <p className="mt-2 font-serif text-2xl text-accent sm:text-3xl">{my_date.getDate('full')}</p>
-                <p className="mt-2 text-muted">
-                  {my_date.getMonth()} months and {my_date.getDay()} days into the structure
-                </p>
+                <p className="mt-2 text-muted">{ifcProgressLine(my_date)}</p>
               </div>
             </section>
 
