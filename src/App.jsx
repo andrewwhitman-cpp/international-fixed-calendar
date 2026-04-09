@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { SiteHeader } from './components/SiteHeader.jsx'
 import About from './About.jsx'
+import FAQs from './FAQs.jsx'
 import DateConverter from './DateConverter.jsx'
 import MyCalendar from './MyCalendar.jsx'
 import { MyDate } from './MyDate.js'
@@ -31,6 +32,8 @@ function App() {
 
       <main className="mx-auto w-full max-w-layout flex-1 px-4 py-8 sm:px-6 lg:px-8">
         {page === 'About' && <About />}
+
+        {page === 'FAQs' && <FAQs />}
 
         {page === 'Home' && (
           <div className="flex flex-col gap-8 lg:gap-10">

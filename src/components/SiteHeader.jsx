@@ -3,6 +3,7 @@ import { ThemeToggle } from './ThemeToggle.jsx'
 const sections = [
   { id: 'Home', label: 'Home' },
   { id: 'About', label: 'About' },
+  { id: 'FAQs', label: 'FAQs' },
 ]
 
 export function SiteHeader({ page, onNavigate }) {
