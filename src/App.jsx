@@ -59,7 +59,7 @@ function App() {
                 <div>
                   <p className="text-xs font-semibold uppercase tracking-widest text-muted">Month view</p>
                   <p className="mt-1 font-serif text-xl font-semibold text-ink sm:text-2xl">
-                    Four weeks per month
+                    Four perfect weeks per month
                   </p>
                 </div>
               </div>

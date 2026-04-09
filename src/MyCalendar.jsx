@@ -74,6 +74,13 @@ function MyCalendar(props) {
     })
   }
 
+  const isViewingToday =
+    view.monthKey === props.todayMonthKey && view.year === props.todayYear
+
+  const handleToday = () => {
+    setView({ year: props.todayYear, monthKey: props.todayMonthKey })
+  }
+
   const isTodayCell = useMemo(() => {
     return (dayNumber) =>
       view.monthKey === props.todayMonthKey &&
@@ -92,11 +99,20 @@ function MyCalendar(props) {
         >
           <ChevronLeftIcon />
         </button>
-        <div className="min-w-0 text-center">
+        <div className="min-w-0 flex flex-col items-center text-center">
           <h2 id="calendar-heading" className="font-serif text-xl font-semibold tracking-tight text-ink sm:text-2xl">
             {monthLabel}
           </h2>
           <p className="text-sm text-muted">{view.year}</p>
+          <button
+            type="button"
+            onClick={handleToday}
+            disabled={isViewingToday}
+            className="mt-1.5 rounded-pill border border-hairline bg-paper px-3 py-1 text-xs font-medium text-ink transition hover:border-accent/50 hover:bg-accent-soft disabled:cursor-default disabled:opacity-50 disabled:hover:border-hairline disabled:hover:bg-paper"
+            aria-label="Jump to current month"
+          >
+            Today
+          </button>
         </div>
         <button
           type="button"
@@ -135,8 +151,8 @@ function MyCalendar(props) {
                 initial={reduceMotion ? false : { opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
-                  duration: reduceMotion ? 0 : 0.2,
-                  delay: reduceMotion ? 0 : index * 0.01,
+                  duration: reduceMotion ? 0 : 0.1,
+                  delay: reduceMotion ? 0 : index * 0.003,
                 }}
                 className={`flex min-h-[2.75rem] items-center justify-center rounded-lg border text-sm font-medium transition sm:min-h-[3rem] sm:text-base ${
                   today
