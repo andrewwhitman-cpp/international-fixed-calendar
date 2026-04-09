@@ -90,12 +90,12 @@ function DateConverter() {
         Gregorian → International Fixed Calendar
       </h2>
       <p className="mt-1 text-sm text-muted">
-        Pick a standard date to see its equivalent in the International Fixed Calendar.
+        Pick a Gregorian date to see its equivalent in the International Fixed Calendar.
       </p>
 
       <fieldset className="mt-5">
         <legend className="mb-2.5 block w-full text-xs font-semibold uppercase tracking-widest text-muted">
-          Standard date
+          Gregorian date
         </legend>
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-[minmax(0,1.35fr)_minmax(4.25rem,0.55fr)_minmax(0,0.95fr)] sm:gap-3">
           <div className="min-w-0">
