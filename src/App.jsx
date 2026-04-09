@@ -58,14 +58,7 @@ function App() {
             </section>
 
             <div className="space-y-3">
-              <div className="flex items-end justify-between gap-4">
-                <div>
-                  <p className="text-xs font-semibold uppercase tracking-widest text-muted">Month view</p>
-                  <p className="mt-1 font-serif text-xl font-semibold text-ink sm:text-2xl">
-                    Four perfect weeks per month
-                  </p>
-                </div>
-              </div>
+              <p className="text-xs font-semibold uppercase tracking-widest text-muted">Month view</p>
               <MyCalendar
                 monthName={my_date.getMonthName()}
                 todayDay={my_date.getDay()}
