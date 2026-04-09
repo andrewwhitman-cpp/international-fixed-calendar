@@ -15,22 +15,15 @@ export const MyMonth = Object.freeze({
     13: 'Tredius'
 })
 
+/** Sunday = 0 … Saturday = 6 — matches IFC months starting on Sunday (same as the month grid). */
 const MyWeekday = Object.freeze({
-    // 0: 'Indem',
-    // 1: 'Dodem',
-    // 2: 'Tredem',
-    // 3: 'Medem',
-    // 4: 'Quindem',
-    // 5: 'Sectem',
-    // 6: 'Findem'
-
-    0: 'Monday',
-    1: 'Tuesday',
-    2: 'Wednesday',
-    3: 'Thursday',
-    4: 'Friday',
-    5: 'Saturday',
-    6: 'Sunday'
+    0: 'Sunday',
+    1: 'Monday',
+    2: 'Tuesday',
+    3: 'Wednesday',
+    4: 'Thursday',
+    5: 'Friday',
+    6: 'Saturday',
 })
 
 export class MyDate {
@@ -62,8 +55,10 @@ export class MyDate {
     // Method to get day
     getDay() { return this.day }
     
-    // Method to get weekday name
-    getWeekday() { return Object.values(MyWeekday)[this.day] }
+    // Method to get weekday name (day 1–28 within a 28-day month; week starts Sunday)
+    getWeekday() {
+        return Object.values(MyWeekday)[(this.day - 1) % 7]
+    }
     
     // Method to get month
     getMonth() { return this.month }
