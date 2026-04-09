@@ -5,6 +5,7 @@ import { MONTH_KEYS, monthKeyFromName } from './lib/myMonth.js'
 
 const WEEKDAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
+/** Month 0 = year-end intercalary days (after Tredius, before Primus). */
 const ADDUS_MONTH_KEY = 0
 const ADDUS_DAY_LABELS = ["New Year's Day", 'Leap Day']
 

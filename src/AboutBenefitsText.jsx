@@ -2,7 +2,7 @@
 export const AboutBenefitsBody = `\
 The thirteen 28-day months remove the uneven rhythm of 30- and 31-day months: every ordinary month has the same length, \
 so planning across months becomes more uniform. Business quarters can align cleanly with four-week cycles, and recurring \
-events tied to “the same weekday” within a month repeat in a steady pattern. The intercalary days handle the extra one or \
+events tied to “the same weekday” within a month repeat in a steady pattern. The year-end intercalary days (Addus) handle the extra one or \
 two days a year without breaking that inner symmetry.
 
 Because the IFC can track the same civil year and leap rules as the Gregorian calendar, seasons and anniversaries tied to \

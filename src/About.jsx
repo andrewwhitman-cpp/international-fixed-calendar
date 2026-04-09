@@ -31,7 +31,7 @@ function About() {
         {MONTH_KEYS.map((key) => {
           const label = MyMonth[key]
           const note =
-            key === 0 ? " (New Year's Day and Leap Day)" : ' (Days 1–28)'
+            key === 0 ? ' (year-end: New Year’s Day and Leap Day)' : ' (Days 1–28)'
           return (
             <li
               key={key}

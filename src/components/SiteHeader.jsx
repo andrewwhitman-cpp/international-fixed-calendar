@@ -14,7 +14,7 @@ export function SiteHeader({ page, onNavigate }) {
           <p className="font-serif text-lg font-semibold tracking-tight text-ink sm:text-xl">
             International Fixed Calendar
           </p>
-          <p className="truncate text-xs text-muted sm:text-sm">13 × 28 + year days</p>
+          <p className="truncate text-xs text-muted sm:text-sm">13 × 28 + year-end days</p>
         </div>
         <div className="flex shrink-0 flex-wrap items-center gap-2 sm:gap-3">
           <nav className="segmented" aria-label="Primary">

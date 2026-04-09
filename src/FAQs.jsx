@@ -5,19 +5,19 @@ const FAQ_ITEMS = [
   },
   {
     q: 'Why thirteen months of twenty-eight days?',
-    a: 'Twenty-eight days is exactly four full seven-day weeks, so each month fits a simple grid and repeats the same weekday pattern. Thirteen such months cover 364 days; the remaining day or two are handled separately.',
+    a: 'Twenty-eight days is exactly four full seven-day weeks, so each month fits a simple grid and repeats the same weekday pattern. Thirteen such months cover 364 days; the remaining day or two fall at year end in Addus, after the thirteenth month.',
   },
   {
     q: 'How long is a year, and how do leap years work?',
-    a: 'A common year has 365 days: 364 from the thirteen 28-day months plus one intercalary day. A Gregorian leap year adds a second intercalary day so the year has 366 days. This site follows that same leap-year rule when placing New Year’s Day and Leap Day.',
+    a: 'A common year has 365 days: 364 from the thirteen 28-day months plus one year-end intercalary day (New Year’s Day). A Gregorian leap year adds a second year-end day (Leap Day) so the year has 366 days. This site follows that same leap-year rule when placing those Addus days.',
   },
   {
     q: 'What is Addus, and what are New Year’s Day and Leap Day?',
-    a: 'Addus is the month that holds the extra day or days between the last 28-day month and the start of the next year. New Year’s Day is always present; Leap Day appears only in leap years. They are not part of the thirteen 28-day months.',
+    a: 'Addus is the month for the year-end intercalary days: they come after Tredius 28 (the last day of the thirteenth month) and before Primus 1 of the next civil year—so the last days of December in the Gregorian calendar map here, for example. New Year’s Day is always present; Leap Day appears only in leap years. They are not part of the thirteen 28-day months.',
   },
   {
     q: 'Why aren’t those days labeled with a weekday (Monday–Sunday)?',
-    a: 'The extra days sit outside the repeating Sunday–Saturday weeks that make up each 28-day month. Labeling them with a weekday would break the rule that every month is exactly four full weeks.',
+    a: 'Those year-end days sit outside the repeating Sunday–Saturday weeks that make up each 28-day month. Labeling them with a weekday would break the rule that every month is exactly four full weeks.',
   },
   {
     q: 'How does the IFC relate to the Gregorian calendar?',
