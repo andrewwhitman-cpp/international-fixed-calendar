@@ -7,6 +7,9 @@ const MONTH_KEYS = Object.keys(MyMonth)
   .sort((a, b) => Number(a) - Number(b))
   .map(Number)
 
+/** Civil year order: thirteen 28-day months first, then Addus (index 0) at year-end. */
+const MONTH_KEYS_DISPLAY_ORDER = [...MONTH_KEYS.filter((k) => k !== 0), 0]
+
 function About() {
   return (
     <article className="prose-planner mx-auto max-w-2xl">
@@ -28,17 +31,17 @@ function About() {
 
       <h2 className="mt-10 font-serif text-xl font-semibold text-ink sm:text-2xl">Months</h2>
       <ul className="mt-4 space-y-3 border-t border-hairline pt-2">
-        {MONTH_KEYS.map((key) => {
+        {MONTH_KEYS_DISPLAY_ORDER.map((key) => {
           const label = MyMonth[key]
           const note =
-            key === 0 ? ' (year-end: New Year’s Day and Leap Day)' : ' (Days 1–28)'
+            key === 0 ? '(year-end: New Year’s Day and Leap Day)' : '(Days 1–28)'
           return (
             <li
               key={key}
               className="flex flex-col gap-0.5 border-b border-hairline py-3 last:border-b-0 sm:flex-row sm:items-baseline sm:justify-between sm:gap-4"
             >
               <span className="font-medium text-ink">
-                Month {key}: {label}
+                {key === 0 ? label : `Month ${key}: ${label}`}
               </span>
               <span className="text-sm text-muted">{note}</span>
             </li>
